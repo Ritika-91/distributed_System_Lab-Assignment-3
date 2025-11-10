@@ -1,0 +1,164 @@
+$ ./cb_tests.sh halfopen
+[info] starting port-forward: svc/client 18080:8080
+[info] pf pid=5882, log=/tmp/portfwd_client_18080.log
+[test] HALF-OPEN: waiting 12s, then sending 20 healthy calls
+[log] 2025-11-10T02:30:52+0000 HALFOPEN begin
+   1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17   18   19   20
+[test] HALF-OPEN done (tail):
+2025-11-10T02:30:55+0000,halfopen,11,{"status":"ok","latencySec":0.005359279,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:55+0000,halfopen,12,{"status":"ok","latencySec":0.006086861,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:55+0000,halfopen,13,{"status":"ok","latencySec":0.005530003,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:55+0000,halfopen,14,{"status":"ok","latencySec":0.004881121,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:56+0000,halfopen,15,{"status":"ok","latencySec":0.00506275,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:56+0000,halfopen,16,{"status":"ok","latencySec":0.004637498,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:56+0000,halfopen,17,{"status":"ok","latencySec":0.0052873,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:56+0000,halfopen,18,{"status":"ok","latencySec":0.005137529,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:57+0000,halfopen,19,{"status":"ok","latencySec":0.005638664,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:57+0000,halfopen,20,{"status":"ok","latencySec":0.004199806,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+
+$ tail -n 60 /tmp/cb_test_output.log
+2025-11-10T02:18:32+0000,open,12,{"status":"error","latencySec":0.008391517,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:32+0000,open,13,{"status":"error","latencySec":0.007330833,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:32+0000,open,14,{"status":"error","latencySec":0.00657505,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:32+0000,open,15,{"status":"error","latencySec":0.007261156,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:33+0000,open,16,{"status":"error","latencySec":0.006918583,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:33+0000,open,17,{"status":"error","latencySec":0.008101092,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:33+0000,open,18,{"status":"error","latencySec":0.009028281,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:34+0000,open,19,{"status":"error","latencySec":0.008658826,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:34+0000,open,20,{"status":"error","latencySec":0.00840927,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:34+0000,open,21,{"status":"error","latencySec":0.007008987,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:34+0000,open,22,{"status":"error","latencySec":0.008295202,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:35+0000,open,23,{"status":"error","latencySec":0.006722044,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:35+0000,open,24,{"status":"error","latencySec":0.00687687,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:35+0000,open,25,{"status":"error","latencySec":0.007066756,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:36+0000,open,26,{"status":"error","latencySec":0.006676619,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:36+0000,open,27,{"status":"error","latencySec":0.011186125,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:37+0000,open,28,{"status":"error","latencySec":0.014708783,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:37+0000,open,29,{"status":"error","latencySec":0.012667282,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:37+0000,open,30,{"status":"error","latencySec":0.008565228,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:38+0000,open,31,{"status":"error","latencySec":0.0169028,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:38+0000,open,32,{"status":"error","latencySec":0.008740478,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:38+0000,open,33,{"status":"error","latencySec":0.008872753,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:39+0000,open,34,{"status":"error","latencySec":0.01274583,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:39+0000,open,35,{"status":"error","latencySec":0.010595798,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:39+0000,open,36,{"status":"error","latencySec":0.013384784,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:40+0000,open,37,{"status":"error","latencySec":0.007350044,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:40+0000,open,38,{"status":"error","latencySec":0.007017052,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:41+0000,open,39,{"status":"error","latencySec":0.007660887,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:41+0000,open,40,{"status":"error","latencySec":0.009059412,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:41+0000,open,41,{"status":"error","latencySec":0.007786486,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:42+0000,open,42,{"status":"error","latencySec":0.0121427,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:42+0000,open,43,{"status":"error","latencySec":0.007679051,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:42+0000,open,44,{"status":"error","latencySec":0.006441315,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:43+0000,open,45,{"status":"error","latencySec":0.011633981,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:43+0000,open,46,{"status":"error","latencySec":0.006574312,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:43+0000,open,47,{"status":"error","latencySec":0.006818812,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:44+0000,open,48,{"status":"error","latencySec":0.009714995,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:44+0000,open,49,{"status":"error","latencySec":0.00664569,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:18:44+0000,open,50,{"status":"error","latencySec":0.005857059,"backend":"{\"error\":\"forced\"}","backendUrl":"http://backend:8081/circuitbreaker"}
+[log] 2025-11-10T02:30:52+0000 HALFOPEN begin
+2025-11-10T02:30:52+0000,halfopen,1,{"status":"ok","latencySec":0.026014681,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:52+0000,halfopen,2,{"status":"ok","latencySec":0.004398463,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:53+0000,halfopen,3,{"status":"ok","latencySec":0.004825524,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:53+0000,halfopen,4,{"status":"ok","latencySec":0.004358958,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:53+0000,halfopen,5,{"status":"ok","latencySec":0.00537471,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:53+0000,halfopen,6,{"status":"ok","latencySec":0.004553717,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:54+0000,halfopen,7,{"status":"ok","latencySec":0.007077686,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:54+0000,halfopen,8,{"status":"ok","latencySec":0.006227239,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:54+0000,halfopen,9,{"status":"ok","latencySec":0.004559345,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:54+0000,halfopen,10,{"status":"ok","latencySec":0.004695104,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:55+0000,halfopen,11,{"status":"ok","latencySec":0.005359279,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:55+0000,halfopen,12,{"status":"ok","latencySec":0.006086861,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:55+0000,halfopen,13,{"status":"ok","latencySec":0.005530003,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:55+0000,halfopen,14,{"status":"ok","latencySec":0.004881121,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:56+0000,halfopen,15,{"status":"ok","latencySec":0.00506275,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:56+0000,halfopen,16,{"status":"ok","latencySec":0.004637498,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:56+0000,halfopen,17,{"status":"ok","latencySec":0.0052873,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:56+0000,halfopen,18,{"status":"ok","latencySec":0.005137529,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:57+0000,halfopen,19,{"status":"ok","latencySec":0.005638664,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+2025-11-10T02:30:57+0000,halfopen,20,{"status":"ok","latencySec":0.004199806,"backend":{"backend":"ok"},"backendUrl":"http://backend:8081/circuitbreaker"}
+
+$ kubectl -n lab3 logs deploy/client --tail=60
+kubectl -n lab3 logs deploy/backend --tail=60
+Date: <filtered>
+2025-11-10T02:30:56.891Z DEBUG 1 --- [or-http-epoll-8] r.n.r.DefaultPooledConnectionProvider    : [b2b39fd8-18, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] onStateChange(GET{uri=/circuitbreaker, connection=PooledConnection{channel=[id: 0xb2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081]}}, [response_received])
+2025-11-10T02:30:56.892Z TRACE 1 --- [or-http-epoll-8] o.s.w.r.f.client.ExchangeFunctions       : [5cb88adb] [b2b39fd8-18] Response 200 OK, headers={masked}
+2025-11-10T02:30:56.892Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.channel.FluxReceive        : [b2b39fd8-18, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] [terminated=false, cancelled=false, pending=0, error=null]: subscribing inbound receiver
+2025-11-10T02:30:56.892Z DEBUG 1 --- [or-http-epoll-8] r.n.http.client.HttpClientOperations     : [b2b39fd8-18, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Received last HTTP packet
+2025-11-10T02:30:56.893Z DEBUG 1 --- [or-http-epoll-8] r.n.r.DefaultPooledConnectionProvider    : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] onStateChange(GET{uri=/circuitbreaker, connection=PooledConnection{channel=[id: 0xb2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081]}}, [response_completed])
+2025-11-10T02:30:56.893Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.ReactorNetty               : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Removed handler: ReadTimeoutHandler, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.left.responseTimeoutHandler = io.netty.handler.timeout.ReadTimeoutHandler), (WriteTimeoutHandler = io.netty.handler.timeout.WriteTimeoutHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-10T02:30:56.893Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.ReactorNetty               : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Removed handler: WriteTimeoutHandler, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.left.responseTimeoutHandler = io.netty.handler.timeout.ReadTimeoutHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-10T02:30:56.893Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.ReactorNetty               : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Removed handler: reactor.left.responseTimeoutHandler, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-10T02:30:56.893Z DEBUG 1 --- [or-http-epoll-8] r.n.r.DefaultPooledConnectionProvider    : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] onStateChange(GET{uri=/circuitbreaker, connection=PooledConnection{channel=[id: 0xb2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081]}}, [disconnecting])
+2025-11-10T02:30:56.893Z DEBUG 1 --- [or-http-epoll-8] r.n.r.DefaultPooledConnectionProvider    : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Releasing channel
+2025-11-10T02:30:56.893Z DEBUG 1 --- [or-http-epoll-8] r.n.resources.PooledConnectionProvider   : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Channel cleaned, now: 0 active connections, 1 inactive connections and 0 pending acquire requests.
+2025-11-10T02:30:57.139Z TRACE 1 --- [nio-8080-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [34787834] HTTP GET http://backend:8081/circuitbreaker?failPct=0, headers={}
+2025-11-10T02:30:57.140Z DEBUG 1 --- [or-http-epoll-8] r.n.resources.PooledConnectionProvider   : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Channel acquired, now: 1 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-10T02:30:57.140Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.ReactorNetty               : [b2b39fd8-19, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Added decoder [ReadTimeoutHandler] at the end of the user pipeline, full pipeline: [reactor.left.httpCodec, ReadTimeoutHandler, reactor.right.reactiveBridge, DefaultChannelPipeline$TailContext#0]
+2025-11-10T02:30:57.140Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.ReactorNetty               : [b2b39fd8-19, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Added decoder [WriteTimeoutHandler] at the end of the user pipeline, full pipeline: [reactor.left.httpCodec, ReadTimeoutHandler, WriteTimeoutHandler, reactor.right.reactiveBridge, DefaultChannelPipeline$TailContext#0]
+2025-11-10T02:30:57.140Z DEBUG 1 --- [or-http-epoll-8] r.netty.http.client.HttpClientConnect    : [b2b39fd8-19, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Handler is being applied: {uri=http://backend:8081/circuitbreaker?failPct=0, method=GET}
+2025-11-10T02:30:57.140Z DEBUG 1 --- [or-http-epoll-8] r.n.r.DefaultPooledConnectionProvider    : [b2b39fd8-19, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] onStateChange(GET{uri=/circuitbreaker, connection=PooledConnection{channel=[id: 0xb2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081]}}, [request_prepared])
+2025-11-10T02:30:57.141Z DEBUG 1 --- [or-http-epoll-8] r.n.r.DefaultPooledConnectionProvider    : [b2b39fd8-19, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] onStateChange(GET{uri=/circuitbreaker, connection=PooledConnection{channel=[id: 0xb2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081]}}, [request_sent])
+2025-11-10T02:30:57.141Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.ReactorNetty               : [b2b39fd8-19, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Added encoder [reactor.left.responseTimeoutHandler] at the beginning of the user pipeline, full pipeline: [reactor.left.httpCodec, reactor.left.responseTimeoutHandler, ReadTimeoutHandler, WriteTimeoutHandler, reactor.right.reactiveBridge, DefaultChannelPipeline$TailContext#0]
+2025-11-10T02:30:57.143Z DEBUG 1 --- [or-http-epoll-8] r.n.http.client.HttpClientOperations     : [b2b39fd8-19, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200
+Content-Type: <filtered>
+Content-Length: <filtered>
+Date: <filtered>
+2025-11-10T02:30:57.143Z DEBUG 1 --- [or-http-epoll-8] r.n.r.DefaultPooledConnectionProvider    : [b2b39fd8-19, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] onStateChange(GET{uri=/circuitbreaker, connection=PooledConnection{channel=[id: 0xb2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081]}}, [response_received])
+2025-11-10T02:30:57.143Z TRACE 1 --- [or-http-epoll-8] o.s.w.r.f.client.ExchangeFunctions       : [34787834] [b2b39fd8-19] Response 200 OK, headers={masked}
+2025-11-10T02:30:57.144Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.channel.FluxReceive        : [b2b39fd8-19, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] [terminated=false, cancelled=false, pending=0, error=null]: subscribing inbound receiver
+2025-11-10T02:30:57.144Z DEBUG 1 --- [or-http-epoll-8] r.n.http.client.HttpClientOperations     : [b2b39fd8-19, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Received last HTTP packet
+2025-11-10T02:30:57.144Z DEBUG 1 --- [or-http-epoll-8] r.n.r.DefaultPooledConnectionProvider    : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] onStateChange(GET{uri=/circuitbreaker, connection=PooledConnection{channel=[id: 0xb2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081]}}, [response_completed])
+2025-11-10T02:30:57.144Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.ReactorNetty               : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Removed handler: ReadTimeoutHandler, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.left.responseTimeoutHandler = io.netty.handler.timeout.ReadTimeoutHandler), (WriteTimeoutHandler = io.netty.handler.timeout.WriteTimeoutHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-10T02:30:57.144Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.ReactorNetty               : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Removed handler: WriteTimeoutHandler, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.left.responseTimeoutHandler = io.netty.handler.timeout.ReadTimeoutHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-10T02:30:57.144Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.ReactorNetty               : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Removed handler: reactor.left.responseTimeoutHandler, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-10T02:30:57.144Z DEBUG 1 --- [or-http-epoll-8] r.n.r.DefaultPooledConnectionProvider    : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] onStateChange(GET{uri=/circuitbreaker, connection=PooledConnection{channel=[id: 0xb2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081]}}, [disconnecting])
+2025-11-10T02:30:57.144Z DEBUG 1 --- [or-http-epoll-8] r.n.r.DefaultPooledConnectionProvider    : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Releasing channel
+2025-11-10T02:30:57.144Z DEBUG 1 --- [or-http-epoll-8] r.n.resources.PooledConnectionProvider   : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Channel cleaned, now: 0 active connections, 1 inactive connections and 0 pending acquire requests.
+2025-11-10T02:30:57.402Z TRACE 1 --- [nio-8080-exec-7] o.s.w.r.f.client.ExchangeFunctions       : [7be9bf35] HTTP GET http://backend:8081/circuitbreaker?failPct=0, headers={}
+2025-11-10T02:30:57.402Z DEBUG 1 --- [or-http-epoll-8] r.n.resources.PooledConnectionProvider   : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Channel acquired, now: 1 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-10T02:30:57.402Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.ReactorNetty               : [b2b39fd8-20, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Added decoder [ReadTimeoutHandler] at the end of the user pipeline, full pipeline: [reactor.left.httpCodec, ReadTimeoutHandler, reactor.right.reactiveBridge, DefaultChannelPipeline$TailContext#0]
+2025-11-10T02:30:57.402Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.ReactorNetty               : [b2b39fd8-20, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Added decoder [WriteTimeoutHandler] at the end of the user pipeline, full pipeline: [reactor.left.httpCodec, ReadTimeoutHandler, WriteTimeoutHandler, reactor.right.reactiveBridge, DefaultChannelPipeline$TailContext#0]
+2025-11-10T02:30:57.402Z DEBUG 1 --- [or-http-epoll-8] r.netty.http.client.HttpClientConnect    : [b2b39fd8-20, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Handler is being applied: {uri=http://backend:8081/circuitbreaker?failPct=0, method=GET}
+2025-11-10T02:30:57.402Z DEBUG 1 --- [or-http-epoll-8] r.n.r.DefaultPooledConnectionProvider    : [b2b39fd8-20, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] onStateChange(GET{uri=/circuitbreaker, connection=PooledConnection{channel=[id: 0xb2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081]}}, [request_prepared])
+2025-11-10T02:30:57.403Z DEBUG 1 --- [or-http-epoll-8] r.n.r.DefaultPooledConnectionProvider    : [b2b39fd8-20, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] onStateChange(GET{uri=/circuitbreaker, connection=PooledConnection{channel=[id: 0xb2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081]}}, [request_sent])
+2025-11-10T02:30:57.403Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.ReactorNetty               : [b2b39fd8-20, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Added encoder [reactor.left.responseTimeoutHandler] at the beginning of the user pipeline, full pipeline: [reactor.left.httpCodec, reactor.left.responseTimeoutHandler, ReadTimeoutHandler, WriteTimeoutHandler, reactor.right.reactiveBridge, DefaultChannelPipeline$TailContext#0]
+2025-11-10T02:30:57.404Z DEBUG 1 --- [or-http-epoll-8] r.n.http.client.HttpClientOperations     : [b2b39fd8-20, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200
+Content-Type: <filtered>
+Content-Length: <filtered>
+Date: <filtered>
+2025-11-10T02:30:57.405Z DEBUG 1 --- [or-http-epoll-8] r.n.r.DefaultPooledConnectionProvider    : [b2b39fd8-20, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] onStateChange(GET{uri=/circuitbreaker, connection=PooledConnection{channel=[id: 0xb2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081]}}, [response_received])
+2025-11-10T02:30:57.405Z TRACE 1 --- [or-http-epoll-8] o.s.w.r.f.client.ExchangeFunctions       : [7be9bf35] [b2b39fd8-20] Response 200 OK, headers={masked}
+2025-11-10T02:30:57.405Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.channel.FluxReceive        : [b2b39fd8-20, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] [terminated=false, cancelled=false, pending=0, error=null]: subscribing inbound receiver
+2025-11-10T02:30:57.405Z DEBUG 1 --- [or-http-epoll-8] r.n.http.client.HttpClientOperations     : [b2b39fd8-20, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Received last HTTP packet
+2025-11-10T02:30:57.406Z DEBUG 1 --- [or-http-epoll-8] r.n.r.DefaultPooledConnectionProvider    : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] onStateChange(GET{uri=/circuitbreaker, connection=PooledConnection{channel=[id: 0xb2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081]}}, [response_completed])
+2025-11-10T02:30:57.406Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.ReactorNetty               : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Removed handler: ReadTimeoutHandler, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.left.responseTimeoutHandler = io.netty.handler.timeout.ReadTimeoutHandler), (WriteTimeoutHandler = io.netty.handler.timeout.WriteTimeoutHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-10T02:30:57.406Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.ReactorNetty               : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Removed handler: WriteTimeoutHandler, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.left.responseTimeoutHandler = io.netty.handler.timeout.ReadTimeoutHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-10T02:30:57.406Z DEBUG 1 --- [or-http-epoll-8] reactor.netty.ReactorNetty               : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Removed handler: reactor.left.responseTimeoutHandler, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-10T02:30:57.406Z DEBUG 1 --- [or-http-epoll-8] r.n.r.DefaultPooledConnectionProvider    : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] onStateChange(GET{uri=/circuitbreaker, connection=PooledConnection{channel=[id: 0xb2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081]}}, [disconnecting])
+2025-11-10T02:30:57.406Z DEBUG 1 --- [or-http-epoll-8] r.n.r.DefaultPooledConnectionProvider    : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Releasing channel
+2025-11-10T02:30:57.406Z DEBUG 1 --- [or-http-epoll-8] r.n.resources.PooledConnectionProvider   : [b2b39fd8, L:/10.1.0.102:49754 - R:backend.lab3.svc.cluster.local/10.102.64.121:8081] Channel cleaned, now: 0 active connections, 1 inactive connections and 0 pending acquire requests.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.4)
+
+2025-11-10T02:04:21.062Z  INFO 1 --- [           main] edu.lab3.backend.BackendApplication      : Starting BackendApplication v0.0.1 using Java 21.0.9 with PID 1 (/app/backend.jar started by root in /app)
+2025-11-10T02:04:21.073Z  INFO 1 --- [           main] edu.lab3.backend.BackendApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-11-10T02:04:25.522Z  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-11-10T02:04:25.566Z  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-10T02:04:25.567Z  INFO 1 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-11-10T02:04:25.705Z  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-10T02:04:25.708Z  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4465 ms
+2025-11-10T02:04:27.061Z  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-11-10T02:04:27.108Z  INFO 1 --- [           main] edu.lab3.backend.BackendApplication      : Started BackendApplication in 7.444 seconds (process running for 9.494)
+2025-11-10T02:04:30.790Z  INFO 1 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-10T02:04:30.790Z  INFO 1 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-10T02:04:30.792Z  INFO 1 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms

@@ -1,0 +1,31 @@
+version: "1.0.0"
+title: "Simulate Backend Service Failure"
+description: "Kills the backend pod to simulate node/pod failure and observe resilience behavior"
+tags:
+  - kubernetes
+  - resilience
+  - backend-failure
+
+steady-state-hypothesis:
+  title: "Backend service remains responsive or gracefully degraded"
+  probes:
+    - type: probe
+      name: "backend-health-check"
+      tolerance: true
+      provider:
+        type: http
+        url: "http://backend-service:9090/health"
+
+method:
+  - type: action
+    name: "delete-backend-pod"
+    provider:
+      type: process
+      path: "kubectl"
+      arguments:
+        - "delete"
+        - "pod"
+        - "-l"
+        - "app=backend-service"
+
+rollbacks: []
